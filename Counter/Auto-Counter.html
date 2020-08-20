@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        let autocounter = 0;
+        function autocount() {
+            autocounter++;
+            document.querySelector(".auto").innerHTML = autocounter;
+        }
+        setInterval(autocount, 1000);
+
+        if (!localStorage.getItem("counter")) {
+            localStorage.setItem("counter", 0);
+        }
+        function count() {
+            let counter = localStorage.getItem("counter");
+            counter++;
+            document.querySelector("h1").innerHTML = counter;
+            localStorage.setItem("counter", counter);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelector("h1").innerHTML = localStorage.getItem("counter")
+            document.querySelector("#count").onclick = count;
+        });
+    </script>
+    <title>
+        A-C
+    </title>
+</head>
+<body>
+    <h1>
+        0
+    </h1>
+    <button id="count">
+        Count !
+    </button>
+    <br>
+    <hr>
+    <br>
+    <h1 class="auto">
+        0
+    </h1>
+</body>
+</html>
